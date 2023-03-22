@@ -18,7 +18,15 @@ module.exports = {
       colors: { mainColor: "#3DA9AB" },
     },
     fontFamily: {
-      "font-montserrat": ["Montserrat"],
+      montserrat: ["Montserrat"],
+    },
+    fontSize: {
+      xl: "60px",
+      large: "35px",
+      ml: "30px",
+      medium: "24px",
+      main: "22px",
+      small: "16px",
     },
   },
   plugins: [],

@@ -1,12 +1,49 @@
 import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
-
-// import styles from "@/components/styles/Home.module.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import Teatcher from "../components/teatcher";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 export default function Home() {
+  const teatchers = [
+    {
+      img: "https://cdn2.thedogapi.com/images/sqQJDtbpY.jpg",
+      name: "Олександр",
+      desc: "Викладач, за плечами якого, не один десяток щасливих студенток та студентів",
+    },
+    {
+      img: "https://cdn2.thedogapi.com/images/sqQJDtbpY.jpg",
+      name: "Олексій",
+      desc: "Викладач, за плечами якого, не один десяток щасливих студенток та студентів",
+    },
+    {
+      name: "Юлія",
+      desc: "Викладач, за плечами якого, не один десяток щасливих студенток та студентів",
+    },
+    {
+      img: "https://cdn2.thedogapi.com/images/sqQJDtbpY.jpg",
+      name: "Олександр",
+      desc: "Викладач, за плечами якого, не один десяток щасливих студенток та студентів",
+    },
+    {
+      img: "https://cdn2.thedogapi.com/images/sqQJDtbpY.jpg",
+      name: "Олександр",
+      desc: "Викладач, за плечами якого, не один десяток щасливих студенток та студентів",
+    },
+    {
+      img: "https://cdn2.thedogapi.com/images/sqQJDtbpY.jpg",
+      name: "Олександр",
+      desc: "Викладач, за плечами якого, не один десяток щасливих студенток та студентів",
+    },
+  ];
+
+  const feedback = [
+    "Юлія Олегівна дуже добра, щира, професіонал своєї справи. Я відвідувала заняття з вересня один раз на тиждень. Задоволена результатом. Багато нового дізналася та вивчила. Уроки не були для мене дуже важкими, але я досягла бажаного результату!Юліє Олегівно, дякую за навчання і за цікаві, різноманітні уроки.Рекомендую кожному для підготовки до ЗНО. Впевнена, що ви також будете задоволені результатом!",
+    "Олександр - найліпший вчитель з усіх, яких я коли - не будь знав! Я готувався в нього до ЗНО з математики та фізики, так що, можете бути впевненими, дало свої обіцяні та очікувані результати!) Він навчив мене не лише свого предмету, але і навчив мене працелюбності, зібраності та надихнув мене до вивчення математики та фізики загалом. Олександр, на мою думку, має вроджене почуття розуміння будь-якої людини, тобто, він знаходить підхід абсолютно до всіх, навіть до тих, до кого дуже нелегко «достукатись». Саша дуже цікавий та неймовірний вчитель, який надихає Вас до навчання, з ним Вам буде легко та приємно занурюватися в світ математичних та фізичних наук. Бажаю Вам всього найкращого!)",
+    "Рік тому прийшов на курси з рівнeм знань нижчe сeрeднього. Завдяки профі-викладачам — підтягнув знання по шкільним прeдмeтам, отримав не менше 10 балів в аттeстаті та поступив на бюджeт у бажаний унівeрситeт! Усім рeкомeндую саме ці курси, адже, окрім бажаних знань, ви будете проводити час з цікавими і веселими викладачами. Дякую, «Від А до Я», за добре проведений час!",
+    "Цього року, я склала іспит ЗНО на 183 бали, а ДПА на 11 балів, і все це завдяки такому чудовому Вчителю, як Олексій. Раніше, я не вивчала математику. І почала її вивчати за три місяці до іспиту. За ці три місяці, Олексій зробив неможливе… Не один вчитель не зможе з нуля, за три місяці, ідеально підготувати учня до іспиту. Але Вам це вдалося!!! Олексію, щиро ДЯКУЮ за неймовірно цікаві та легкi уроки!!! )))",
+  ];
   return (
     <>
       <Head>
@@ -15,7 +52,161 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="">qwerty</main>
+      <main className="mx-5 md:mx-24 lg:mx-48 font-montserrat ">
+        <div className="mt-16 mb-16 md:mb-72">
+          <h1 className="text-large mx-auto lg:mx-0 lg:text-xl w-3/4 font-medium leading-tight">
+            Онлайн - школа{" "}
+            <p className="inline text-mainColor">професійної підготовки</p> до
+            НМТ
+          </h1>
+          <h2 className="text-medium w-3/4 my-16 mx-auto lg:mx-0 lg:text-ml lg:w-2/5">
+            Якісна підготовка - гарантує вступ до університету мрії
+          </h2>
+          <button className="rounded-2xl mx-20 font-medium text-white bg-mainColor text-small p-5 lg:mx-0 md:text-main md:p-7 hover:bg-emerald-500">
+            Безкоштовний урок
+          </button>
+        </div>
+        <div className="mx-2 mb-16 md:mb-52  flex flex-wrap justify-center">
+          <h1 className="text-large text-center w-full inline-block lg:text-xl font-medium leading-tight">
+            Про нас
+          </h1>
+          <h2 className="text-medium text-center w-4/5 my-16 mx-auto lg:mx-0 lg:text-ml ">
+            Команда Alex - ми молоді і{" "}
+            <p className="inline text-mainColor">продуктивні</p> люди, які за
+            допомогою нових технологій зможемо зацікавити дитину у навчанні та
+            підготовки до НМТ. Ми неймовірно круті репетитори працюємо лише 4
+            роки, але вже маємо незчисленну кількість задоволених учнів та їх
+            батьків.
+          </h2>
+        </div>
+        <div className="mb-16 md:mb-52  flex flex-wrap justify-center">
+          <h1 className="text-large inline-block lg:text-xl font-medium  mb-10 md:mb-20 ">
+            Викладачі
+          </h1>
+          <Carousel
+            additionalTransfrom={0}
+            arrows
+            autoPlay
+            autoPlaySpeed={5000}
+            centerMode={false}
+            className=""
+            containerClass="container"
+            dotListClass=""
+            draggable
+            focusOnSelect={false}
+            infinite={true}
+            itemClass=""
+            keyBoardControl
+            minimumTouchDrag={10}
+            pauseOnHover
+            renderArrowsWhenDisabled={false}
+            renderButtonGroupOutside={false}
+            renderDotsOutside={false}
+            responsive={{
+              desktop: {
+                breakpoint: {
+                  max: 3000,
+                  min: 1024,
+                },
+                items: 3,
+                partialVisibilityGutter: 40,
+              },
+              mobile: {
+                breakpoint: {
+                  max: 464,
+                  min: 0,
+                },
+                items: 1,
+                partialVisibilityGutter: 30,
+              },
+              tablet: {
+                breakpoint: {
+                  max: 1024,
+                  min: 464,
+                },
+                items: 2,
+                partialVisibilityGutter: 30,
+              },
+            }}
+            rewind={false}
+            rewindWithAnimation={false}
+            rtl={false}
+            shouldResetAutoplay
+            showDots={false}
+            sliderClass=""
+            slidesToSlide={1}
+            swipeable
+          >
+            {teatchers.map((teatcher, index) => (
+              <Teatcher key={index} {...teatcher} />
+            ))}
+          </Carousel>
+        </div>
+        <div className="mx-2  mb-16 md:mb-52  flex flex-wrap justify-center">
+          <h1 className="text-large  inline-block lg:text-xl  font-medium leading-tight">
+            Види послуг
+          </h1>
+          <h2 className="text-medium text-center w-4/5 my-10 md:mt-28 mx-auto lg:mx-0 lg:text-ml ">
+            Уроки для кожного підбираються{" "}
+            <p className="inline text-mainColor">індивідуально</p>, це
+            сгоджується із репетитором, в скільки годин, в які дні, скільки раз
+            на тиждень.
+          </h2>
+          <div className="flex w-4/5 mt-10 justify-around flex-wrap text-main md:text-ml">
+            <div className="w-full my-4 md:w-2/5 p-3 md:p-8 shadow-[-4px_4px_10px_2px_rgba(0,0,0,0.25)]">
+              <p>Індивідуальне заняття</p>
+              <ul className="marker:text-mainColor list-disc font-medium pl-6 my-24">
+                <li>1 година - 150грн</li>
+                <li>4 години - 550грн</li>
+                <li>45 хв - 120грн </li>
+              </ul>
+            </div>
+            <div className="w-full my-4 md:w-2/5 p-3 md:p-8 shadow-[4px_4px_10px_2px_rgba(0,0,0,0.25)]">
+              <p>Груповушка</p>
+              <p>(до 3 людей)</p>
+              <ul className="marker:text-mainColor list-disc font-medium pl-6 my-24">
+                <li>1 година - 90грн</li>
+                <li>4 години - 330грн</li>
+              </ul>
+            </div>
+          </div>
+          <h2 className="text-medium text-justify w-4/5 my-10 md:mt-28 mx-auto lg:mx-0 lg:text-ml ">
+            Ми додамо Вас в тг канал{" "}
+            <p className="inline text-mainColor">тільки</p> з нашим учням, де
+            публікуються допоміжні матеріали по навчанню, цікаві загадки з
+            математики та круті відео!
+          </h2>
+        </div>
+        <div className="mx-2  mb-16 md:mb-52  flex flex-wrap justify-center">
+          <h1 className="text-large w-full text-center inline-block lg:text-xl font-medium text-mainColor">
+            Відгуки
+          </h1>
+          <div className="flex justify-around w-4/5 text-white">
+            <div className="flex flex-col flex-wrap w-full md:w-1/2 m-3">
+              {feedback.map((item, index) => (
+                <p
+                  key={index}
+                  className="bg-mainColor w-full m-2 p-2 rounded-lg box-border"
+                  style={index % 2 ? { display: "none" } : undefined}
+                >
+                  {item}
+                </p>
+              ))}
+            </div>
+            <div className="flex flex-col flex-wrap w-full md:w-1/2 m-3">
+              {feedback.map((item, index) => (
+                <p
+                  key={index}
+                  className="bg-mainColor w-full m-2 p-2 rounded-lg box-border"
+                  style={index % 2 ? undefined : { display: "none" }}
+                >
+                  {item}
+                </p>
+              ))}
+            </div>
+          </div>
+        </div>
+      </main>
     </>
   );
 }
