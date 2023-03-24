@@ -4,16 +4,17 @@ import { Inter } from "next/font/google";
 import Teatcher from "../components/teatcher";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import Icon from "../components/icons/icon";
 
 export default function Home() {
   const teatchers = [
     {
-      img: "https://cdn2.thedogapi.com/images/sqQJDtbpY.jpg",
+      img: "https://lh3.googleusercontent.com/pw/AMWts8AMS0ZMF8MVJJg6p6RhnYtNwB9GP5_BS9U0j1ecwSRYmXMv1olmuBEOH-2DBoVr6-qdQPidU2soqnW-ejCla4LoWHyIWIqnX-8P9OcN2gWbAU6XKXo3tAst8iSqb4WkwEuC6zTQlMXOOpEVPRwbBPeM=w1280-h643-s-no?authuser=0",
       name: "Олександр",
       desc: "Викладач, за плечами якого, не один десяток щасливих студенток та студентів",
     },
     {
-      img: "https://cdn2.thedogapi.com/images/sqQJDtbpY.jpg",
+      img: "https://lh3.googleusercontent.com/pw/AMWts8AMS0ZMF8MVJJg6p6RhnYtNwB9GP5_BS9U0j1ecwSRYmXMv1olmuBEOH-2DBoVr6-qdQPidU2soqnW-ejCla4LoWHyIWIqnX-8P9OcN2gWbAU6XKXo3tAst8iSqb4WkwEuC6zTQlMXOOpEVPRwbBPeM=w1280-h643-s-no?authuser=0",
       name: "Олексій",
       desc: "Викладач, за плечами якого, не один десяток щасливих студенток та студентів",
     },
@@ -22,17 +23,17 @@ export default function Home() {
       desc: "Викладач, за плечами якого, не один десяток щасливих студенток та студентів",
     },
     {
-      img: "https://cdn2.thedogapi.com/images/sqQJDtbpY.jpg",
+      img: "https://lh3.googleusercontent.com/pw/AMWts8AMS0ZMF8MVJJg6p6RhnYtNwB9GP5_BS9U0j1ecwSRYmXMv1olmuBEOH-2DBoVr6-qdQPidU2soqnW-ejCla4LoWHyIWIqnX-8P9OcN2gWbAU6XKXo3tAst8iSqb4WkwEuC6zTQlMXOOpEVPRwbBPeM=w1280-h643-s-no?authuser=0",
       name: "Олександр",
       desc: "Викладач, за плечами якого, не один десяток щасливих студенток та студентів",
     },
     {
-      img: "https://cdn2.thedogapi.com/images/sqQJDtbpY.jpg",
+      img: "https://lh3.googleusercontent.com/pw/AMWts8AMS0ZMF8MVJJg6p6RhnYtNwB9GP5_BS9U0j1ecwSRYmXMv1olmuBEOH-2DBoVr6-qdQPidU2soqnW-ejCla4LoWHyIWIqnX-8P9OcN2gWbAU6XKXo3tAst8iSqb4WkwEuC6zTQlMXOOpEVPRwbBPeM=w1280-h643-s-no?authuser=0",
       name: "Олександр",
       desc: "Викладач, за плечами якого, не один десяток щасливих студенток та студентів",
     },
     {
-      img: "https://cdn2.thedogapi.com/images/sqQJDtbpY.jpg",
+      img: "https://lh3.googleusercontent.com/pw/AMWts8AMS0ZMF8MVJJg6p6RhnYtNwB9GP5_BS9U0j1ecwSRYmXMv1olmuBEOH-2DBoVr6-qdQPidU2soqnW-ejCla4LoWHyIWIqnX-8P9OcN2gWbAU6XKXo3tAst8iSqb4WkwEuC6zTQlMXOOpEVPRwbBPeM=w1280-h643-s-no?authuser=0",
       name: "Олександр",
       desc: "Викладач, за плечами якого, не один десяток щасливих студенток та студентів",
     },
@@ -53,7 +54,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="mx-5 md:mx-24 lg:mx-48 font-montserrat ">
-        <div className="mt-16 mb-16 md:mb-72">
+        <div id="main" className="mt-16 mb-16 md:mb-72">
           <h1 className="text-large mx-auto lg:mx-0 lg:text-xl w-3/4 font-medium leading-tight">
             Онлайн - школа{" "}
             <p className="inline text-mainColor">професійної підготовки</p> до
@@ -66,20 +67,26 @@ export default function Home() {
             Безкоштовний урок
           </button>
         </div>
-        <div className="mx-2 mb-16 md:mb-52  flex flex-wrap justify-center">
+        <div
+          id="about"
+          className="mx-2 mb-16 md:mb-52  flex flex-wrap justify-center"
+        >
           <h1 className="text-large text-center w-full inline-block lg:text-xl font-medium leading-tight">
             Про нас
           </h1>
           <h2 className="text-medium text-center w-4/5 my-16 mx-auto lg:mx-0 lg:text-ml ">
-            Команда Alex - ми молоді і{" "}
-            <p className="inline text-mainColor">продуктивні</p> люди, які за
-            допомогою нових технологій зможемо зацікавити дитину у навчанні та
-            підготовки до НМТ. Ми неймовірно круті репетитори працюємо лише 4
-            роки, але вже маємо незчисленну кількість задоволених учнів та їх
-            батьків.
+            Команда Alex- це <p className="inline text-mainColor">молоді</p> та
+            перспективні вчителі. Люди, які самі не так давно були на місці
+            учнів, зможуть зацікавити та на прикладах з життя вдало пояснити
+            матеріал. Працюючи у цій сфері вже чотири роки, ми пишаємось
+            результатами у вигляді задоволених процессом навчання учнів та
+            задоволених результатами батьків.
           </h2>
         </div>
-        <div className="mb-16 md:mb-52  flex flex-wrap justify-center">
+        <div
+          id="teachers"
+          className="mb-16 md:mb-52  flex flex-wrap justify-center"
+        >
           <h1 className="text-large inline-block lg:text-xl font-medium  mb-10 md:mb-20 ">
             Викладачі
           </h1>
@@ -142,68 +149,95 @@ export default function Home() {
             ))}
           </Carousel>
         </div>
-        <div className="mx-2  mb-16 md:mb-52  flex flex-wrap justify-center">
+        <div
+          id="services"
+          className="mx-2  mb-16 md:mb-52  flex flex-wrap justify-center"
+        >
           <h1 className="text-large  inline-block lg:text-xl  font-medium leading-tight">
             Види послуг
           </h1>
           <h2 className="text-medium text-center w-4/5 my-10 md:mt-28 mx-auto lg:mx-0 lg:text-ml ">
-            Уроки для кожного підбираються{" "}
-            <p className="inline text-mainColor">індивідуально</p>, це
-            сгоджується із репетитором, в скільки годин, в які дні, скільки раз
-            на тиждень.
+            Заняття проводяться виключно на{" "}
+            <p className="inline text-mainColor">індивідуальній</p> основі, що
+            забезпечує максимально ефективний підхід до навчання. Гнучкий графік
+            занять дозволяє погоджувати час та частоту занять з вашим
+            репетитором, щоб графік відповідав вашим потребам та можливостям.
           </h2>
-          <div className="flex w-4/5 mt-10 justify-around flex-wrap text-main md:text-ml">
-            <div className="w-full my-4 md:w-2/5 p-3 md:p-8 shadow-[-4px_4px_10px_2px_rgba(0,0,0,0.25)]">
-              <p>Індивідуальне заняття</p>
-              <ul className="marker:text-mainColor list-disc font-medium pl-6 my-24">
-                <li>1 година - 150грн</li>
-                <li>4 години - 550грн</li>
-                <li>45 хв - 120грн </li>
+          <div className="flex w-4/5 mt-10 justify-around flex-wrap text-small md:text-main">
+            <div className="w-full my-4 md:w-2/5 m-2 p-6 shadow-[-4px_4px_10px_2px_rgba(0,0,0,0.25)]">
+              <p>
+                1-4 клас <br />
+                (молодша школа)
+              </p>
+              <ul className=" marker:text-mainColor list-disc font-medium pl-6 my-11">
+                <li className="my-5">1 година - 160грн</li>
+                <li className="my-5">
+                  Місяць (9 занять) - 1300грн{" "}
+                  <Icon
+                    icon="shopping-sale"
+                    size={20}
+                    color={"rgb(61 169 171 )"}
+                  />{" "}
+                  <p className="inline text-mainColor">-10%</p>
+                </li>
               </ul>
             </div>
-            <div className="w-full my-4 md:w-2/5 p-3 md:p-8 shadow-[4px_4px_10px_2px_rgba(0,0,0,0.25)]">
-              <p>Груповушка</p>
-              <p>(до 3 людей)</p>
-              <ul className="marker:text-mainColor list-disc font-medium pl-6 my-24">
-                <li>1 година - 90грн</li>
-                <li>4 години - 330грн</li>
+            <div className="w-full my-4 md:w-2/5 m-2 p-6 shadow-[4px_4px_10px_2px_rgba(0,0,0,0.25)]">
+              <p>
+                5-9 клас <br />
+                (середня школа)
+              </p>
+              <ul className=" marker:text-mainColor list-disc font-medium pl-6 my-11">
+                <li className="my-5">1 година - 190грн</li>
+                <li className="my-5">
+                  Місяць (9 занять) - 1540грн{" "}
+                  <Icon
+                    icon="shopping-sale"
+                    size={20}
+                    color={"rgb(61 169 171 )"}
+                  />{" "}
+                  <p className="inline text-mainColor">-10%</p>
+                </li>
+              </ul>
+            </div>
+            <div className="w-full my-4 md:w-2/5 m-2 p-6  shadow-[0px_10px_10px_-2px_rgba(0,0,0,0.25)]">
+              <p>
+                10-11 клас <br />
+                (старша школа)
+              </p>
+              <ul className=" marker:text-mainColor list-disc font-medium pl-6 my-11">
+                <li className="my-5">1 година - 220грн</li>
+                <li className="my-5">
+                  Місяць (9 занять) - 1880грн{" "}
+                  <Icon
+                    icon="shopping-sale"
+                    size={20}
+                    color={"rgb(61 169 171 )"}
+                  />{" "}
+                  <p className="inline text-mainColor">-5%</p>
+                </li>
               </ul>
             </div>
           </div>
           <h2 className="text-medium text-justify w-4/5 my-10 md:mt-28 mx-auto lg:mx-0 lg:text-ml ">
-            Ми додамо Вас в тг канал{" "}
-            <p className="inline text-mainColor">тільки</p> з нашим учням, де
-            публікуються допоміжні матеріали по навчанню, цікаві загадки з
-            математики та круті відео!
+            Бонусом, надаємо доступ до телеграм каналу з учнями, де публікується
+            лише <p className="inline text-mainColor">найнеобхідніша</p>{" "}
+            інформація по заданому предмету.
           </h2>
         </div>
-        <div className="mx-2  mb-16 md:mb-52  flex flex-wrap justify-center">
+        <div id="feedback" className="mx-2 flex flex-wrap mb-32 justify-center">
           <h1 className="text-large w-full text-center inline-block lg:text-xl font-medium text-mainColor">
             Відгуки
           </h1>
-          <div className="flex justify-around w-4/5 text-white">
-            <div className="flex flex-col flex-wrap w-full md:w-1/2 m-3">
-              {feedback.map((item, index) => (
-                <p
-                  key={index}
-                  className="bg-mainColor w-full m-2 p-2 rounded-lg box-border"
-                  style={index % 2 ? { display: "none" } : undefined}
-                >
-                  {item}
-                </p>
-              ))}
-            </div>
-            <div className="flex flex-col flex-wrap w-full md:w-1/2 m-3">
-              {feedback.map((item, index) => (
-                <p
-                  key={index}
-                  className="bg-mainColor w-full m-2 p-2 rounded-lg box-border"
-                  style={index % 2 ? undefined : { display: "none" }}
-                >
-                  {item}
-                </p>
-              ))}
-            </div>
+          <div className="columns-2  gap-4">
+            {feedback.map((item, index) => (
+              <p
+                key={index}
+                className="bg-mainColor text-white w-full mt-0 mr-4 mb-4 ml-0 p-3 rounded-lg box-border inline-block"
+              >
+                {item}
+              </p>
+            ))}
           </div>
         </div>
       </main>

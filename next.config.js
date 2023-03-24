@@ -5,9 +5,9 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "cdn2.thedogapi.com",
+        hostname: "lh3.googleusercontent.com",
         port: "",
-        pathname: "/images/**.jpg",
+        pathname: "/pw/**",
       },
     ],
   },

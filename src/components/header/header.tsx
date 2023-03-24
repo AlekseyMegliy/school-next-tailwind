@@ -1,10 +1,18 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import logo from "../../assets/logo.svg";
+import { animateScroll as scroll, scroller } from "react-scroll";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
-
+  const scrollToElement = (id: string) => {
+    scroller.scrollTo(id, {
+      duration: 500,
+      delay: 100,
+      smooth: true,
+      offset: -50, // можна змінити відступ від елемента
+    });
+  };
   return (
     <div
       className={`text-main flex justify-around md:justify-between flex-wrap overflow-hidden font-montserrat  h-48 transition-[height] duration-200 ease-in-out`}
@@ -25,32 +33,32 @@ export default function Header() {
       </button>
       <div className="md:flex justify-around flex-grow flex-col md:flex-row w-full md:w-min ml-10 my-auto md:mr-24 lg:mr-48 ">
         <a
-          className="hover:text-slate-500 transition duration-150 ease-out hover:ease-in"
-          href="#"
+          className="hover:text-slate-500 transition duration-150 ease-out hover:ease-in cursor-pointer"
+          onClick={() => scrollToElement("main")}
         >
           <p className="py-3">Головна</p>
         </a>
         <a
-          className="hover:text-slate-500 transition duration-150 ease-out hover:ease-in"
-          href="#"
+          className="hover:text-slate-500 transition duration-150 ease-out hover:ease-in cursor-pointer"
+          onClick={() => scrollToElement("about")}
         >
           <p className="py-3">Про нас</p>
         </a>
         <a
-          className="hover:text-slate-500 transition duration-150 ease-out hover:ease-in"
-          href="#"
+          className="hover:text-slate-500 transition duration-150 ease-out hover:ease-in cursor-pointer"
+          onClick={() => scrollToElement("teachers")}
         >
           <p className="py-3">Викладачі</p>
         </a>
         <a
-          className="hover:text-slate-500 transition duration-150 ease-out hover:ease-in"
-          href="#"
+          className="hover:text-slate-500 transition duration-150 ease-out hover:ease-in cursor-pointer"
+          onClick={() => scrollToElement("services")}
         >
           <p className="py-3">Види послуг</p>
         </a>
         <a
-          className="hover:text-slate-500 transition duration-150 ease-out hover:ease-in"
-          href="#"
+          className="hover:text-slate-500 transition duration-150 ease-out hover:ease-in cursor-pointer"
+          onClick={() => scrollToElement("feedback")}
         >
           <p className="py-3">Відгуки</p>
         </a>
