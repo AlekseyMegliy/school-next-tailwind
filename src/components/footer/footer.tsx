@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import logo from "../../assets/logo.svg";
+import Logo from "../../assets/logo.svg";
 
 export default function Footer() {
   return (
@@ -10,7 +10,7 @@ export default function Footer() {
           className="hidden md:inline-block ml-10 md:ml-24 lg:ml-48 box-content my-auto"
           href="#"
         >
-          <Image className="w-44 " alt="Alex logo" priority src={logo} />
+          <Logo className="w-44 " alt="Alex logo" />
         </a>
 
         <div className="ml-10 text-2xl mb-10">
