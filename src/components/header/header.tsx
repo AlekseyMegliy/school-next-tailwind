@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import logo from "../../assets/logo.svg";
+import Logo from "../../assets/logo.svg";
 import { animateScroll as scroll, scroller } from "react-scroll";
 
 export default function Header() {
@@ -10,7 +10,7 @@ export default function Header() {
       duration: 500,
       delay: 100,
       smooth: true,
-      offset: -50, // можна змінити відступ від елемента
+      offset: -50,
     });
   };
   return (
@@ -19,7 +19,7 @@ export default function Header() {
       style={open ? { height: "520px" } : undefined}
     >
       <a className="md:ml-24 lg:ml-48" href="#">
-        <Image className="" alt="Alex logo" src={logo} priority />
+        <Logo className="" alt="Alex logo" />
       </a>
       <button
         className="md:hidden flex justify-end mt-6"
