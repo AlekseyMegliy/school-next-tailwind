@@ -161,7 +161,7 @@ export default function Home() {
   const introTopSeviceVariants: Variants = {
     hide: {
       opacity: 0.5,
-      y: 200,
+      y: 100,
     },
     show: {
       opacity: 1,
@@ -418,7 +418,7 @@ export default function Home() {
           <div className="absolute  left-40 -z-10 h-[1px] w-1/6 -rotate-12 transform bg-golden opacity-30 shadow-golden" />
 
           <div className="absolute  right-40 -z-10 h-[1px] w-1/12 origin-top-left rotate-45 transform bg-golden opacity-30 shadow-golden" />
-          <h1 className="inline-block w-full text-center text-large font-medium text-mainColor lg:text-xl">
+          <h1 className="mb-3 inline-block w-full text-center text-large font-medium text-mainColor lg:text-xl">
             Відгуки
           </h1>
           <div className="w-4/5 gap-4 md:columns-2">

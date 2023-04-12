@@ -22,10 +22,9 @@ export default function Teatcher({ img, name, prof, desc }: Teacher) {
         />
       ) : (
         <Logo
-          className="mx-auto mb-16 box-content aspect-square w-4/5 rounded-full object-cover"
+          className="mx-auto box-content aspect-square w-3/5 rounded-full object-cover md:w-4/5"
           alt="Alex logo"
           width="280"
-          height="270"
         />
       )}
       <h2 className="mx-auto mt-5 text-center text-main font-medium md:text-medium lg:mx-0 lg:text-ml ">
@@ -34,7 +33,7 @@ export default function Teatcher({ img, name, prof, desc }: Teacher) {
       <h2 className="mx-auto mb-5 text-center text-small font-normal md:text-ms lg:mx-0 ">
         {prof}
       </h2>
-      <h3 className="mx-auto w-3/4 text-center text-small font-normal md:text-ms">
+      <h3 className="mx-auto w-full text-center text-small font-normal md:text-ms">
         {desc}
       </h3>
     </div>
