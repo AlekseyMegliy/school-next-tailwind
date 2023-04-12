@@ -192,7 +192,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.svg" />
       </Head>
-      <main className="mx-5 overflow-hidden font-montserrat md:mx-24 lg:mx-48">
+      <main className="overflow-hidden px-5 font-montserrat md:px-24 lg:px-48">
         <div id="main" className="mt-16 mb-16 md:mb-72">
           {isForm && (
             <>
@@ -361,7 +361,7 @@ export default function Home() {
                     "w-full",
                     "my-4",
                     "md:w-2/5",
-                    "m-2",
+                    "sm:m-2",
                     "p-6",
                     {
                       "shadow-[-4px_4px_10px_2px_rgba(0,0,0,0.25)]":
