@@ -30,6 +30,8 @@
   "devDependencies": {
     "@svgr/webpack": "^7.0.0",
     "@types/react-scroll": "^1.8.6",
+    "prettier": "^2.8.7",
+    "prettier-plugin-tailwindcss": "^0.2.7",
     "tailwindcss": "^3.2.7"
   }
 }

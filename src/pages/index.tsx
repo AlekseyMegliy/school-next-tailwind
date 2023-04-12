@@ -91,14 +91,14 @@ export default function Home() {
       },
     ],
     feedback: [
+      "Заняття було пречудовим. Викладач розповів все чітко і зрозуміло. Багато чого не знала, але завдяки вам я все зрозуміла і трошечки «шарю». На уроці було цікаво і навіть весело. Дякую вам!!",
       "/L Юля(учениця): Я здала       /L У мене все правильно       /L Я в шоці       /R Викладач: 200?       /L Юля(учениця): Так, дякую за підготовку!",
-      "Олександр. Дякую Вам дуже. Вважаю, що Ваша праця і натхненність викладача потребує підживлення хоча б у грошовому вимірі. Дякую!       Викладач: Дякую, приємно це чути, працюємо далі",
+      "/L Олександр. Дякую Вам дуже. Вважаю, що Ваша праця і натхненність викладача потребує підживлення хоча б у грошовому вимірі. Дякую!       /R Викладач: Дякую, приємно це чути, працюємо далі",
       "/L Анжела(Учениця): Добрий день, чи можу я Ваш номер дати моїй знайомій для занять?      /R Препод: Добрий, так звісно",
       "Син просто у захваті! Вчитель легко виявляє прогалини у знаннях з алгебри та геометрії. Матеріал подає доступно, пояснює незрозумілі речі простими словами. Тільки найкращі слова подяки вчителю.Дякуємо! ",
       "/L Сашенька здравствуйте!      /L Маша (учениця) мне только что говорит: Мама мне так нравится с ним заниматся       /L Это говорит мне ребенок, котрый, в принципе, не любит заниматься ни по одному предмету😄😄       /L Спасибо большое!",
       "/L Доброго дня.       /L Я Ваш номер дала подрузі, без Вашого дозволу.       /L їй потрібен гарний репетитор для дівчинки 11 класу",
       "/L Учень: 25 з 30      /R  Вчитель: це скільки в балах?      /L учень: 175, ніколи б не подумав що можу на стільки скласти з 0, дуже дякую       /R Вчитель: молодець, працюй далі🦾",
-      "Заняття було пречудовим. Викладач розповів все чітко і зрозуміло. Багато чого не знала, але завдяки вам я все зрозуміла і трошечки «шарю». На уроці було цікаво і навіть весело. Дякую вам!!",
     ],
   };
   const [sheet, setSheet] = useState<Data | undefined>(schoolData);
@@ -138,6 +138,7 @@ export default function Home() {
     show: {
       opacity: 1,
       x: 0,
+      y: 0,
       transition: {
         duration: 2,
       },
@@ -151,6 +152,7 @@ export default function Home() {
     show: {
       opacity: 1,
       x: 0,
+      y: 0,
       transition: {
         duration: 2,
       },
@@ -190,23 +192,44 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.svg" />
       </Head>
-      <main className="mx-5 md:mx-24 lg:mx-48 font-montserrat ">
+      <main className="mx-5 overflow-hidden font-montserrat md:mx-24 lg:mx-48">
         <div id="main" className="mt-16 mb-16 md:mb-72">
+          {isForm && (
+            <>
+              <div
+                onClick={handleOffClick}
+                className="fixed left-0 top-0 z-40 h-full w-full bg-black opacity-70 transition-opacity duration-300"
+              ></div>
+              <Form handleOffClick={handleOffClick} />
+            </>
+          )}
           <motion.header
             initial="hide"
             whileInView="show"
             exit="hide"
             variants={introLeftFeedbackVariants}
           >
-            <h1 className="text-large mx-auto lg:mx-0 lg:text-xl w-3/4 font-medium leading-tight">
+            <h1 className="mx-auto w-3/4 text-large font-medium leading-tight lg:mx-0 lg:text-xl">
               Онлайн - школа{" "}
               <p className="inline text-mainColor">професійної підготовки</p> до
               НМТ
             </h1>
-            <h2 className="text-medium w-3/4 my-16 mx-auto lg:mx-0 lg:text-ml lg:w-2/5">
+            <h2 className="my-16 mx-auto w-3/4 text-medium lg:mx-0 lg:w-2/5 lg:text-ml">
               Якісна підготовка - гарантує вступ до університету мрії
             </h2>
           </motion.header>
+          <div className="absolute top-10 right-10 -z-10 h-[1px] w-1/12 -rotate-12 transform bg-golden opacity-30 shadow-golden" />
+          <div className="absolute bottom-32 -left-14 -z-10 h-1 w-1  transform bg-golden opacity-90 shadow-golden" />
+          <div className="absolute bottom-32 left-40 -z-10 h-1 w-1  transform bg-golden opacity-70 shadow-golden" />
+          <div className="absolute bottom-60 left-28 -z-10 h-1 w-1  transform bg-golden opacity-60 shadow-golden" />
+          <div className="shadow-green absolute -bottom-8 left-8 -z-20 h-10 w-16 transform bg-mainColor opacity-70" />
+          <div className="shadow-green absolute -bottom-16 left-4 -z-20 h-10 w-16 transform bg-mainColor opacity-70" />
+
+          <div className="absolute -bottom-8 right-10 -z-10 h-1 w-1  transform bg-golden opacity-40 shadow-golden" />
+          <div className="absolute -bottom-8 right-48 -z-10 h-1 w-1  transform bg-golden opacity-40 shadow-golden" />
+          <div className="absolute bottom-4 right-28 -z-10 h-1 w-1  transform bg-golden opacity-40 shadow-golden" />
+          <div className="shadow-green absolute -bottom-40 right-8 -z-20 h-10 w-16 transform bg-mainColor opacity-50" />
+          <div className="shadow-green absolute -bottom-64 right-4 -z-20 h-10 w-16 transform bg-mainColor opacity-50" />
           <motion.div
             initial="hide"
             whileInView="show"
@@ -215,30 +238,21 @@ export default function Home() {
           >
             <button
               onClick={handleOnClick}
-              className="rounded-2xl mx-20 font-medium text-white bg-mainColor text-small p-5 lg:mx-0 md:text-main md:p-7 hover:bg-emerald-500"
+              className="mx-20 rounded-2xl bg-mainColor p-5 text-small font-medium text-white hover:bg-emerald-500 md:p-7 md:text-main lg:mx-0"
             >
               Безкоштовний урок
             </button>
           </motion.div>
-          {isForm && (
-            <>
-              <div
-                onClick={handleOffClick}
-                className="fixed left-0 top-0 w-full h-full bg-black opacity-70 transition-opacity duration-300"
-              ></div>
-              <Form />
-            </>
-          )}
         </div>
         <div
           id="about"
-          className="mx-2 mb-16 md:mb-52  flex flex-wrap justify-center"
+          className="mx-2 mb-16 flex  flex-wrap justify-center md:mb-52"
         >
-          <h1 className="text-large text-center w-full inline-block lg:text-xl font-medium leading-tight">
+          <h1 className="inline-block w-full text-center text-large font-medium leading-tight lg:text-xl">
             Про нас
           </h1>
           <motion.header
-            className="text-medium text-center w-4/5 my-16 mx-auto lg:mx-0 lg:text-ml "
+            className="my-5 mx-auto w-full text-center text-ms sm:text-main md:my-16 md:w-4/5 md:text-medium lg:mx-0 lg:text-ml "
             initial="hide"
             whileInView="show"
             exit="hide"
@@ -254,9 +268,12 @@ export default function Home() {
         </div>
         <div
           id="teachers"
-          className="mb-16 md:mb-52  flex flex-wrap justify-center"
+          className="mb-16 flex  flex-wrap justify-center md:mb-52"
         >
-          <h1 className="text-large inline-block lg:text-xl font-medium  mb-10 md:mb-20 ">
+          <div className="absolute  left-10 -z-10 h-[1px] w-1/2  -rotate-12 transform bg-golden opacity-30 shadow-golden" />
+          <div className="absolute  left-40 -z-10 h-[1px] w-1/2  -rotate-12 transform bg-golden opacity-30 shadow-golden" />
+
+          <h1 className="mb-10 inline-block text-large font-medium  md:mb-20 lg:text-xl ">
             Викладачі
           </h1>
           <Carousel
@@ -321,19 +338,21 @@ export default function Home() {
         </div>
         <div
           id="services"
-          className="mx-2  mb-16 md:mb-52  flex flex-wrap justify-center"
+          className="mx-2  mb-16 flex  flex-wrap justify-center md:mb-52"
         >
-          <h1 className="text-large  inline-block lg:text-xl  font-medium leading-tight">
+          <h1 className="inline-block  text-large font-medium  leading-tight lg:text-xl">
             Види послуг
           </h1>
-          <h2 className="text-medium text-center w-4/5 my-10 md:mt-28 mx-auto lg:mx-0 lg:text-ml ">
+          <div className="shadow-green absolute left-1/2 -z-10 h-[1px]  w-1/5 -rotate-[55deg] transform bg-mainColor opacity-40" />
+          <div className="shadow-green absolute left-1/2 -z-10 h-[1px]  w-1/5 -rotate-45 transform bg-mainColor opacity-60" />
+          <h2 className="my-10 mx-auto w-full text-center text-ms sm:text-medium md:mt-28 md:w-4/5 lg:mx-0 lg:text-ml ">
             Заняття проводяться виключно на{" "}
             <p className="inline text-mainColor">індивідуальній</p> основі, що
             забезпечує максимально ефективний підхід до навчання. Гнучкий графік
             занять дозволяє погоджувати час та частоту занять з вашим
             репетитором, щоб графік відповідав вашим потребам та можливостям.
           </h2>
-          <div className="flex w-4/5 mt-10 justify-around flex-wrap text-small md:text-main">
+          <div className="mt-10 flex w-4/5 flex-wrap justify-around text-small md:text-main">
             {sheet !== undefined &&
               sheet.sevice.map((service, index) => (
                 <motion.div
@@ -373,7 +392,7 @@ export default function Home() {
                     {service.header} <br />
                     {service.secondHeader}
                   </p>
-                  <ul className=" marker:text-mainColor list-disc font-medium pl-6 my-11">
+                  <ul className=" my-11 list-disc pl-6 font-medium marker:text-mainColor">
                     <li className="my-5">{service.firstServ}</li>
                     <li className="my-5">
                       {service.secondServ}{" "}
@@ -388,22 +407,26 @@ export default function Home() {
                 </motion.div>
               ))}
           </div>
-          <h2 className="text-medium text-justify w-4/5 my-10 md:mt-28 mx-auto lg:mx-0 lg:text-ml ">
+          <h2 className="my-10 mx-auto w-full text-justify text-ms md:mt-28 md:w-4/5 md:text-medium lg:mx-0 lg:text-ml ">
             Бонусом, надаємо доступ до телеграм каналу з учнями, де публікується
             лише <p className="inline text-mainColor">найнеобхідніша</p>{" "}
             інформація по заданому предмету.
           </h2>
         </div>
-        <div id="feedback" className="mx-2 flex flex-wrap mb-40 justify-center">
-          <h1 className="text-large w-full text-center inline-block lg:text-xl font-medium text-mainColor">
+        <div id="feedback" className="mx-2 mb-40 flex flex-wrap justify-center">
+          <div className="absolute  left-10 -z-10 h-[1px] w-1/6 -rotate-12 transform bg-golden opacity-30 shadow-golden" />
+          <div className="absolute  left-40 -z-10 h-[1px] w-1/6 -rotate-12 transform bg-golden opacity-30 shadow-golden" />
+
+          <div className="absolute  right-40 -z-10 h-[1px] w-1/12 origin-top-left rotate-45 transform bg-golden opacity-30 shadow-golden" />
+          <h1 className="inline-block w-full text-center text-large font-medium text-mainColor lg:text-xl">
             Відгуки
           </h1>
-          <div className="md:columns-2 w-4/5 gap-4">
+          <div className="w-4/5 gap-4 md:columns-2">
             {sheet !== undefined &&
               sheet.feedback.map((item, index) => (
                 <motion.div
                   key={index}
-                  className="bg-mainColor text-white w-full mt-0 mr-4 mb-4 ml-0 p-3 rounded-lg box-border inline-block"
+                  className="mt-0 mr-4 mb-4 ml-0 box-border inline-block w-full rounded-lg bg-mainColor p-3 text-white"
                   initial="hide"
                   whileInView="show"
                   exit="hide"
@@ -420,6 +443,8 @@ export default function Home() {
               ))}
           </div>
         </div>
+        <div className="shadow-green absolute right-0 -z-10 h-[1px]  w-1/3 rotate-12 transform bg-mainColor opacity-60" />
+        <div className="shadow-green absolute right-3 -z-10 h-[1px]  w-1/3 rotate-12 transform bg-mainColor opacity-60" />
       </main>
     </>
   );
