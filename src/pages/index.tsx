@@ -9,48 +9,24 @@ import { motion, Variants } from "framer-motion";
 import axios from "axios";
 import classNames from "classnames";
 import Dialogue from "../components/dialogue/dialogue";
-
-type Teacher = {
-  img?: string;
-  name: string;
-  prof?: string;
-  desc: string;
-};
-
-type Service = {
-  header: string;
-  secondHeader: string;
-  firstServ: string;
-  secondServ: string;
-  sale: string;
-};
-
-type Feedback = string[];
-
-type Data = {
-  teachers: Teacher[];
-  sevice: Service[];
-  feedback: Feedback;
-};
+import { Teacher, Service, Feedback, Data } from "../types";
 
 export default function Home() {
   const [isForm, setIsForm] = useState(false);
+
   const schoolData = {
     teachers: [
       {
-        // img: "https://lh3.googleusercontent.com/PIEqH2lREpJFPVm5qIoWM_rUh9D4YT1Pwakp3f89cKUh7bgmviABd2Or2MibWGGKTxVuJvST9k1pcVQIeEme5CcE2UZBJVZ4KSxZZx3QHSt4j7-Ufm3L4jnEwBxr5KBASYzWpneIf7yC2CsyLJ3C33yM2uJFCKnCYmdQQMexhb7lY3T1aV6FPCjdroB4_IrD4VJ7XTXVvpyVNpgJ8NOt9xTbhBoWRm8iDF3jircPiBMsjOsgNYlc6mRrW4Ao8v0JAARsF1YZoED-ZuihQ5AjxVM8Cl9geLMYt1GMJlA1gE1V0143VyOITP9YaZnzlnSKd50s0WgRmUP2b-hAmV-Anq3tHG-X0px4gVmBkFTu1aQwKk3_X8ZqmLiHW3gl4-M_-Ab_REjrfoCuoZ7_EncsbT5hJZ7au2TYAk5O54u_Ai9Et62PhfKAbJdInMA3p-8WEDOg9N2htbLh41C0Pkglj9YdasUncUZYabzk6SZVRQPbu4bCGiArXlMtfoMpXdWI_VfHXh4uqmyXcid7U5kWQAfiCfUAGrGrhEw6ZlK3bLIJ3wBIrwkW3pTB27AE_09m3XOMMmdl7fuxwUPPjoyZ4iifb6BKjDFqXGuvnjzVze8X0QNI9A8Rwdi6FQgI6L-2lElkIHkU7Kf9P7Mq6GjlbxtQAXoIao2zgdnnLFuzssiDU2O9GkKBAOqNCF8mTk5lO5S9l1z5ZhwTWaZQ97RVSWQte9CNJLYNvhfXxA8FMRFAQrZZKc4bdfPtSLghaZH9atU4hdsmidGI83N5B4mALNYlQjJ8quH71QbbFtvxvsNAZO0Wyev3I49bnCnn6Au8GTZRsFZx8EjOBI_2_VRDzIwBh-fqZpjErw3MAucv87GnBGgWGivpaqbvi5N68478rHvAJCbo7c0wU5L0FJtxh415r1n41fHFNpfzCZNx2CA=s640-no?authuser=0",
         name: "Дар'я",
         prof: "(Вчитель середньої школи)",
         desc: "Вчитель, про якого треба давати більший розголос, говорять, що діти не хочуть покидати заняття після його завершення, настільки це цікаво",
       },
       {
-        // img: "https://lh3.googleusercontent.com/_3XkFHEylUBipEpzP2JqPrxnokYnsNzjG2KQRITm-KFbliPRlhsRq1HzG5gq4BajRUk9SG2bUCcRcZ0gTnO2VeJL4l-_dVLCtbPTonvxlS5xynG6OKtM-gUvgswT4msSUyI5Zx4DegeCUU8H4obdsgntqLB78v4QjE_oFmOuwBl2PWC9s6rX7h44t2fzRZjDfCW2vDMPrXtS4Ly9jD-6JguYc1wKHFgh8FLVZpnfPcOII4OBWDGyqT7aEbkhSYXCPXrQNIvZ1PR16RmnbULrHlF7p-MPfb2-o8UDTUMj00l4ig1hHUls50JUBDzEFWi8SuHe9Bgzl3bDmVGFEDsZ71F3cqH3WK0148LPfqSANiNbcMb9G_wFotRpUz9k21ArhBuDqLjSFtewcpYTX8RE33GutNBxfyaZVm-_JZl5t-PdYUQWTPvFKJ8NPdnBuZCPmxiEvnBVcHO8xPfqxDf68DUWlwXeMb08-kl7_pA5fxGRnBpYZrP1dR39Cj8G1hH1M8bj7qcYuwuSEFvRnuYJsX7rlUMPV6WizrWrd8ks52SHBAzsFCcZhyYJXXdAh60nOp1WKjlCcOrfvDz6ZJdNadNPQRdMzaBEolMrAY5wRdzlC6vwJyNF2lA00oCOR4tjosbtbL-1JRF5yFJM6qixe1rguPa4_46U5CJyld4hFq4cbb8kiIk6kzytYASXP4DgQa5JI3cCfkoaCLZGCI-ptdNNmMX55s90AZ1xe3pRSyXZdG4UqOuHQO-TJ542sfzlNFCk9KiIeQO5GUEpGCyOhCa2ZnesXY79ZLmewuunxyScP8eV15gBJNTqzdQnvp82yMgkTGuISS7ozu-aLEgn0WBx3g8HUfOzWi8YpzKZ8I1xh9mp7184YWFc3Zs4UORTBr3bdLVRLq6Ip7UnbZFXWvH9RDeq8ZL-I1n9kv74LBI=w481-h550-no?authuser=0",
         name: "Ольга",
         prof: "(Вчитель середньої школи)",
         desc: "Таланту Олі позаздрить будь-який вчитель старшої категорії. Таке вміння працювати з молодшими дітьми набувається лише за багато років кропіткої праці",
       },
       {
-        // img: "https://lh3.googleusercontent.com/uXcEigvucipUEUWRPrwB_DCUPqF8-smtY9TjRwhncXYPfkvBOETFYHIbig67Qh0dqgWsQcyg1NuLOCd7ZX2taRMKzEzdRstYyVrQAe7A8EKr1zSHN2Ej-y9kXL8AojSWPl0s2V0J5_75WclJ2vJPDhDiMzZOPQOZyAYysG7t1rAxZkSqSYjBF5RTuQv8KYLfMzflS6ToEUT2ejBjHvG2_siUhNk5VJR7GSIUZJs30jTHuTbENLqBbxsnFwVuGmFN4SbTByAZRRYui-iMcCm5Phk7BeX8QCAGvoB8sjvL84NWiNtIom-ul5AZAdOyZ_cszbrVvKnGF00rpdTLv1CWIcKskaU-T4mqCqfid8L2o2tg0pYLHVHQjAvddt7MI9aZVmHejQd6uhTqv2M13zsQTffsrQy7LXkBlbF7fCy0dplJc-bTuSneKPdTfGGKCb2cM8E_46nKpiy6psxqAjyYTm3nylP6WuBvW_3S1mnIjIEDrhJ1iMJblpT1CrddCV_CKVMRESaMlBh--QUam9mwULb0PsYmZz3FkCWTHSV5VxUJR4YX_ei86Jbf2bcWbq--0yjAOh_mui9v6ofN7Ng0i3YDc9S3ScRtNffitHfT51n8F1nMptNKJCPlL_wOLOk3zgNC725QPLBTH5cYwUfR2uCJqMG8wgC0Ew4jYLYqcd1dHIIfR1-wKc9Ok0OFMI4DVxk0M8OuuAzunuW2nruqOmqKuReFawDktA-vbDn2VNi560LQ_MmGqny8nWlJuNk3aHGwLv5Homv6GgfusI9q71CYLS3O1fFkJSfojvSz-QyNopLUxjnJ_gXCi_EAV_Yimmc46RSoifyz7PhTOUHtzKZp6MkBgSriuO83-5DYAOpPy7kNwIuz-QzBJ1aWlpJDWH2Zp8YjuhMNkE_2OkibthkWq1y4KaLqkKTCYOGGflI=s640-no?authuser=0",
         name: "Юлія",
         prof: "(Вчитель української мови)",
         desc: "Молода вчителька, яка чітко знає, чого хоче дитина та її батьки. Вона вміло підбере програму підготовки для дитини і навчить її розмовляти солов'їною",
@@ -103,6 +79,7 @@ export default function Home() {
   };
   const [sheet, setSheet] = useState<Data | undefined>(schoolData);
 
+  const urlpost = "https://api.jsonbin.io/v3/b/6437fd07c0e7653a05a38087";
   const url = "https://api.jsonbin.io/v3/b/642184e9ace6f33a22fe12a7";
   const apiKey = "$2b$10$toqyJLX.dEJPK1M1JFUF9.ncmFKtgrrGSnbgtb82knpntYSpD2kcS";
   const config = {
@@ -190,7 +167,12 @@ export default function Home() {
         <title>Alex School</title>
         <meta name="description" content="Generated by create next app" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.svg" />
+        <link rel="icon" href="/favicon.webp" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap"
+          media="print"
+        />
       </Head>
       <main className="overflow-hidden px-5 font-montserrat md:px-24 lg:px-48">
         <div id="main" className="mt-16 mb-16 md:mb-72">
@@ -268,7 +250,7 @@ export default function Home() {
         </div>
         <div
           id="teachers"
-          className="mb-16 flex  flex-wrap justify-center md:mb-52"
+          className="mb-16 flex  flex-col items-center justify-center md:mb-52"
         >
           <div className="absolute  left-10 -z-10 h-[1px] w-1/2  -rotate-12 transform bg-golden opacity-30 shadow-golden" />
           <div className="absolute  left-40 -z-10 h-[1px] w-1/2  -rotate-12 transform bg-golden opacity-30 shadow-golden" />
@@ -338,21 +320,21 @@ export default function Home() {
         </div>
         <div
           id="services"
-          className="mx-2  mb-16 flex  flex-wrap justify-center md:mb-52"
+          className="relative mx-2 mb-16 flex flex-col justify-center md:mb-52"
         >
-          <h1 className="inline-block  text-large font-medium  leading-tight lg:text-xl">
+          <h1 className="mx-auto  inline-block  text-large font-medium  leading-tight lg:text-xl">
             Види послуг
           </h1>
-          <div className="shadow-green absolute left-1/2 -z-10 h-[1px]  w-1/5 -rotate-[55deg] transform bg-mainColor opacity-40" />
-          <div className="shadow-green absolute left-1/2 -z-10 h-[1px]  w-1/5 -rotate-45 transform bg-mainColor opacity-60" />
-          <h2 className="my-10 mx-auto w-full text-center text-ms sm:text-medium md:mt-28 md:w-4/5 lg:mx-0 lg:text-ml ">
+          <div className="shadow-green absolute top-0 left-1/2 -z-10 h-[1px]  w-1/5 -rotate-[55deg] transform bg-mainColor opacity-40" />
+          <div className="shadow-green absolute top-0 left-1/2 -z-10 h-[1px]  w-1/5 -rotate-45 transform bg-mainColor opacity-60" />
+          <h2 className="my-10 mx-auto w-full text-center text-ms sm:text-medium md:mt-28 md:w-4/5 lg:text-ml ">
             Заняття проводяться виключно на{" "}
             <p className="inline text-mainColor">індивідуальній</p> основі, що
             забезпечує максимально ефективний підхід до навчання. Гнучкий графік
             занять дозволяє погоджувати час та частоту занять з вашим
             репетитором, щоб графік відповідав вашим потребам та можливостям.
           </h2>
-          <div className="mt-10 flex w-4/5 flex-wrap justify-around text-small md:text-main">
+          <div className="mx-auto mt-10 flex w-4/5 flex-wrap justify-around  text-small md:text-main">
             {sheet !== undefined &&
               sheet.sevice.map((service, index) => (
                 <motion.div
@@ -407,7 +389,7 @@ export default function Home() {
                 </motion.div>
               ))}
           </div>
-          <h2 className="my-10 mx-auto w-full text-justify text-ms md:mt-28 md:w-4/5 md:text-medium lg:mx-0 lg:text-ml ">
+          <h2 className="my-10 mx-auto w-full text-justify text-ms md:mt-28 md:w-4/5 md:text-medium  lg:text-ml ">
             Бонусом, надаємо доступ до телеграм каналу з учнями, де публікується
             лише <p className="inline text-mainColor">найнеобхідніша</p>{" "}
             інформація по заданому предмету.
@@ -446,6 +428,10 @@ export default function Home() {
         <div className="shadow-green absolute right-0 -z-10 h-[1px]  w-1/3 rotate-12 transform bg-mainColor opacity-60" />
         <div className="shadow-green absolute right-3 -z-10 h-[1px]  w-1/3 rotate-12 transform bg-mainColor opacity-60" />
       </main>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap"
+      />
     </>
   );
 }

@@ -18,12 +18,13 @@ export default function Header() {
       className={`flex h-48 flex-wrap justify-around overflow-hidden font-montserrat text-main  transition-[height] duration-200 ease-in-out md:justify-between`}
       style={open ? { height: "520px" } : undefined}
     >
-      <a className="md:ml-24 lg:ml-48" href="#">
+      <p className="md:ml-24 lg:ml-48">
         <Logo className="" alt="Alex logo" />
-      </a>
+      </p>
       <button
         className="mt-6 flex justify-end md:hidden"
         onClick={() => setOpen((open) => (open = !open))}
+        aria-label="Menu"
       >
         <svg className="inline-block h-10 w-16">
           <rect x="10" y="6" width="15" height="2" />
@@ -32,37 +33,40 @@ export default function Header() {
         </svg>
       </button>
       <div className="my-auto ml-10 w-full flex-grow flex-col justify-around md:mr-24 md:flex md:w-min md:flex-row lg:mr-48 ">
-        <a
-          className="cursor-pointer transition duration-150 ease-out hover:text-slate-500 hover:ease-in"
+        <p
+          className="cursor-pointer py-3 transition duration-150 ease-out hover:text-slate-500 hover:ease-in"
           onClick={() => scrollToElement("main")}
         >
-          <p className="py-3">Головна</p>
-        </a>
-        <a
-          className="cursor-pointer transition duration-150 ease-out hover:text-slate-500 hover:ease-in"
+          Головна
+        </p>
+        <p
+          className="cursor-pointer py-3 transition duration-150 ease-out hover:text-slate-500 hover:ease-in"
           onClick={() => scrollToElement("about")}
         >
-          <p className="py-3">Про нас</p>
-        </a>
-        <a
-          className="cursor-pointer transition duration-150 ease-out hover:text-slate-500 hover:ease-in"
+          Про нас
+        </p>
+        <p
+          className="cursor-pointer py-3 transition duration-150 ease-out hover:text-slate-500 hover:ease-in"
           onClick={() => scrollToElement("teachers")}
         >
-          <p className="py-3">Викладачі</p>
-        </a>
-        <a
-          className="cursor-pointer transition duration-150 ease-out hover:text-slate-500 hover:ease-in"
+          Викладачі
+        </p>
+        <p
+          className="cursor-pointer py-3 transition duration-150 ease-out hover:text-slate-500 hover:ease-in"
           onClick={() => scrollToElement("services")}
         >
-          <p className="py-3">Види послуг</p>
-        </a>
-        <a
-          className="cursor-pointer transition duration-150 ease-out hover:text-slate-500 hover:ease-in"
+          Види послуг
+        </p>
+        <p
+          className="cursor-pointer py-3 transition duration-150 ease-out hover:text-slate-500 hover:ease-in"
           onClick={() => scrollToElement("feedback")}
         >
-          <p className="py-3">Відгуки</p>
-        </a>
-        <a className="text-medium font-medium hover:text-sky-500" href="#">
+          Відгуки
+        </p>
+        <a
+          className="text-medium font-medium hover:text-sky-500"
+          href="https://t.me/alex_NMT_2023"
+        >
           <p className="py-3">Telegram</p>
         </a>
       </div>

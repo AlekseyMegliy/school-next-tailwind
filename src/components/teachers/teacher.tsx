@@ -13,7 +13,7 @@ export default function Teatcher({ img, name, prof, desc }: Teacher) {
     <div className="mx-auto flex w-5/6 flex-col justify-center">
       {img !== undefined ? (
         <Image
-          className="mx-auto mb-5 box-content aspect-square w-3/5 rounded-full object-cover md:mb-16 md:w-4/5"
+          className="mx-auto mb-5 box-content aspect-square w-3/5 rounded-full object-cover sm:mb-8 md:mb-2 md:w-4/5"
           alt={name}
           src={img}
           priority
@@ -21,11 +21,9 @@ export default function Teatcher({ img, name, prof, desc }: Teacher) {
           height={280}
         />
       ) : (
-        <Logo
-          className="mx-auto box-content aspect-square w-3/5 rounded-full object-cover md:w-4/5"
-          alt="Alex logo"
-          width="280"
-        />
+        <div className="mx-auto box-content aspect-square w-3/5 rounded-full object-cover md:w-4/5">
+          <Logo alt="Alex logo" className="mx-auto h-full" />
+        </div>
       )}
       <h2 className="mx-auto mt-5 text-center text-main font-medium md:text-medium lg:mx-0 lg:text-ml ">
         {name}
