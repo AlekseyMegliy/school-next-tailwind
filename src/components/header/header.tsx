@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import Image from "next/image";
-import Logo from "../../assets/logo.svg";
+import Logo from "../../../public/logo.svg";
 import { animateScroll as scroll, scroller } from "react-scroll";
-
 export default function Header() {
   const [open, setOpen] = useState(false);
   const scrollToElement = (id: string) => {
@@ -15,7 +13,7 @@ export default function Header() {
   };
   return (
     <div
-      className={`flex h-48 flex-wrap justify-around overflow-hidden font-montserrat text-main  transition-[height] duration-200 ease-in-out md:justify-between`}
+      className={`flex h-48 flex-wrap justify-around overflow-hidden text-main  transition-[height] duration-200 ease-in-out md:justify-between`}
       style={open ? { height: "520px" } : undefined}
     >
       <p className="md:ml-24 lg:ml-48">
