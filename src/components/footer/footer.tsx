@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../../assets/logo.svg";
+import Logo from "../../../public/logo.svg";
 import { animateScroll as scroll, scroller } from "react-scroll";
 
 export default function Footer() {
@@ -22,9 +22,7 @@ export default function Footer() {
         </p>
 
         <div className="text-2xl ml-10 mb-10">
-          <h1 className="font-serif mb-5 font-montserrat text-large uppercase">
-            Меню
-          </h1>
+          <h1 className="font-serif mb-5 text-large uppercase">Меню</h1>
           <p
             className="cursor-pointer py-3 transition duration-150 ease-out hover:text-slate-500 hover:ease-in"
             onClick={() => scrollToElement("main")}
@@ -57,7 +55,7 @@ export default function Footer() {
           </p>
         </div>
         <div className="ml-10  mb-10 md:mr-24 lg:mr-48">
-          <h1 className="font-serif w-48 font-montserrat text-large uppercase leading-tight">
+          <h1 className="font-serif w-48 text-large uppercase leading-tight">
             Напишіть нам!
           </h1>
           <a
@@ -68,7 +66,7 @@ export default function Footer() {
           </a>
         </div>
       </div>
-      <p className=" ml-10 font-montserrat text-small md:ml-24 lg:ml-48">
+      <p className=" ml-10 text-small md:ml-24 lg:ml-48">
         © Всі права захищені. Alex School.
       </p>
     </div>
