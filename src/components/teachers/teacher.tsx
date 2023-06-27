@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../../assets/logo.svg";
+import Logo from "../../../public/logo.svg";
 import Image from "next/image";
 
 export type Teacher = {
@@ -16,7 +16,6 @@ export default function Teatcher({ img, name, prof, desc }: Teacher) {
           className="mx-auto mb-5 box-content aspect-square w-3/5 rounded-full object-cover sm:mb-8 md:mb-2 md:w-4/5"
           alt={name}
           src={img}
-          priority
           width={280}
           height={280}
         />
