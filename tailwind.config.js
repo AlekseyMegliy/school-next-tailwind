@@ -17,7 +17,7 @@ module.exports = {
       },
     },
     fontFamily: {
-      montserrat: ["Montserrat"],
+      montserrat: ["var(--font-montserrat)"],
     },
     fontSize: {
       xl: "60px",
