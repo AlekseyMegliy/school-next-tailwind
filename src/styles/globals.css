@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply font-montserrat  font-normal;
-}
 .shadow-green {
   box-shadow: #3da9ab 0px 0px 110px 100px;
 }

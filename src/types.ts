@@ -15,6 +15,12 @@ export type Service = {
 
 export type Feedback = string[];
 
+export type FormData = {
+  name: string;
+  phone: string;
+  service?: string;
+};
+
 export type Data = {
   teachers: Teacher[];
   sevice: Service[];
