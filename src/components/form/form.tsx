@@ -12,14 +12,14 @@ export default function Form({ handleOffClick, notify }: SomeComponentProps) {
   const [phone, setPhone] = useState("");
   const [service, setService] = useState("");
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     const data: FormData = {
       name,
       phone,
       service,
     };
-    fetch("/api/contact", {
+    await fetch("/api/contact", {
       method: "post",
       body: JSON.stringify(data),
     });
