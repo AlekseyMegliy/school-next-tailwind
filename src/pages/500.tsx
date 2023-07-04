@@ -8,7 +8,7 @@ export default function Custom404() {
       <div className="flex w-1/3 flex-col justify-center">
         <p className="text-ml font-medium">
           Йой! Сталась халепа! <br />
-          Код помилки: 500, щось сталось на стороні сервера. Напишіть нам і ми
+          Код помилки: 500, щось сталось на стороні сервера. Напишіть нам, і ми
           швидко виправимо проблему
           <br />
           Наш{" "}
