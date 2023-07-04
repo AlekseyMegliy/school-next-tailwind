@@ -16,31 +16,18 @@ export default async (req, res) => {
       text: message,
       html: message.replace(/\r\n/g, "<br />"),
     };
-    //   const sended = await mail
-    //     .send(data)
-    //     .then(() => {
-    //       console.log("Email sent");
-    //     })
-    //     .catch((error) => {
-    //       console.error(error);
-    //     });
-    //   console.log("sended: ", sended);
+    await mail
+      .send(data)
+      .then(() => {
+        console.log("Email sent");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
 
-    //   res.status(200).json({ status: "OK" });
-    //   return { success: true };
-    // } catch (error) {
-    //   console.error(error);
-    //   res.status(500).json({ error: "An error occurred" });
-    //   return { succes: false };
-    // }
-
-    const sended = await mail.send(data);
-    console.log("sended: ", sended);
     res.status(200).json({ status: "OK" });
-    return { success: true };
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "An error occurred" });
-    return { succes: false };
   }
 };
