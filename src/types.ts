@@ -23,6 +23,6 @@ export type FormData = {
 
 export type Data = {
   teachers: Teacher[];
-  sevice: Service[];
+  service: Service[];
   feedback: Feedback;
 };
