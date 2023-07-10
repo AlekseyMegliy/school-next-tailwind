@@ -11,25 +11,25 @@ import Services from "../components/services/services";
 import Feedback from "../components/feedback/feedback";
 import Teatcher from "../components/teachers/teacher";
 
-export async function getStaticProps() {
-  const urlpost = "https://api.jsonbin.io/v3/b/6437fd07c0e7653a05a38087";
-  const url = "https://api.jsonbin.io/v3/b/642184e9ace6f33a22fe12a7";
-  const apiKey = "$2b$10$toqyJLX.dEJPK1M1JFUF9.ncmFKtgrrGSnbgtb82knpntYSpD2kcS";
-  const config = {
-    headers: {
-      "X-Master-Key": apiKey,
-    },
-  };
-  const response = await axios.get(url, config);
-  const data = response.data.record;
-  console.log(response.data.record);
+// export async function getStaticProps() {
+//   const urlpost = "https://api.jsonbin.io/v3/b/6437fd07c0e7653a05a38087";
+//   const url = "https://api.jsonbin.io/v3/b/642184e9ace6f33a22fe12a7";
+//   const apiKey = "$2b$10$toqyJLX.dEJPK1M1JFUF9.ncmFKtgrrGSnbgtb82knpntYSpD2kcS";
+//   const config = {
+//     headers: {
+//       "X-Master-Key": apiKey,
+//     },
+//   };
+//   const response = await axios.get(url, config);
+//   const data = response.data.record;
+//   console.log(response.data.record);
 
-  return {
-    props: {
-      data,
-    },
-  };
-}
+//   return {
+//     props: {
+//       data,
+//     },
+//   };
+// }
 
 export default function Home({ data }: { data: Data | undefined }) {
   const schoolData = {
