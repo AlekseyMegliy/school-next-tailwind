@@ -107,7 +107,7 @@ export default function Home({ data }: { data: Data | undefined }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.webp" />
       </Head>
-      <main className="overflow-hidden  px-5 font-montserrat md:px-24 lg:px-48">
+      <main className="overflow-hidden px-5 font-montserrat md:px-24 lg:px-48">
         <Hero />
 
         <AboutUs />
