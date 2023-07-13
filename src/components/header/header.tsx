@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Link from "next/link";
 import Logo from "../../../public/logo.svg";
 import { animateScroll as scroll, scroller } from "react-scroll";
 export default function Header() {
@@ -61,6 +62,12 @@ export default function Header() {
         >
           Відгуки
         </p>
+        <Link
+          href="/materials"
+          className="py-3 transition duration-150 ease-out hover:text-slate-500 hover:ease-in"
+        >
+          Матеріали
+        </Link>
         <a
           className="text-medium font-medium hover:text-sky-500"
           href="https://t.me/alex_NMT_2023"
